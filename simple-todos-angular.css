@@ -21,8 +21,18 @@ body {
  font-family: "Times New Roman", Times, serif;
  font-size: 12px;
  color: blue;
+}
 
+#messageTime{
+ text-align: right !important;
+ font-size: 8px;
+ color: grey;
+}
 
+#headerText{
+ text-align: center;
+ font-size: 18px;
+ color: red;
 }
 
 .container {
@@ -71,8 +81,6 @@ h1 {
 }
 
 
-
-
 form {
   margin-top: 10px;
   margin-bottom: -10px;
@@ -82,8 +90,8 @@ form {
 .new-task input {
   box-sizing: border-box;
   padding: 10px 0;
-  background: transparent;
-  border: none;
+  background: #D9E5FF;
+  border: 6px;
   width: 100%;
   padding-right: 80px;
   font-size: 1em;
@@ -113,6 +121,8 @@ li {
   list-style: none;
   padding: 10px;
   border-bottom: #eee solid 1px;
+  background: #FFFFE6;
+
 }
 
 li .text {

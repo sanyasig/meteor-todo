@@ -1,36 +1,34 @@
 <div class="container">
     <header>
-        <h1>Todo List ( {{ incompleteCount() }} )</h1>
-
-        <label class="hide-completed">
-            <input type="checkbox" ng-model="$parent.hideCompleted"/>
-            Hide Completed Tasks
-        </label>
-
         <meteor-include src="loginButtons"></meteor-include>
-
-        <!-- add a form below the h1 -->
-
     </header>
+    <h1 id="headerText">Chat Room</h1>
     <div ng-if="!$root.currentUser">
         <h1>Please log in to use the chat room</h1>
     </div>
+    <form class="new-task" ng-submit="addMessage(newMessage); newMessage='';">
+        <input type="text" ng-model="newMessage" name="Text" placeholder="New Message"/>
+    </form>
     <div ng-if="$root.currentUser" class="chat-box">
-        <form class="new-task" ng-submit="addMessage(newMessage); newMessage='';">
-            <input type="text" ng-model="newMessage" name="Text" placeholder="New Message"/>
-        </form>
-
         <ul ng-repeat="eachMessage in messages">
-            <li><span id="username">{{$root.currentUser.username}}: </span>{{eachMessage.message}}</li>
+            <li><span id="username">{{eachMessage.username}}: </span>{{eachMessage.message}} <div id="messageTime">Time</div></li>
         </ul>
     </div>
+
+    <h1 id="headerText">Todo List ( {{ incompleteCount() }} )</h1>
+    <label class="hide-completed">
+        <input type="checkbox" ng-model="$parent.hideCompleted"/>
+        Hide Completed Tasks
+    </label>
+
+    <form class="new-task"
+          ng-submit="addTask(newTask); newTask='';"
+          ng-show="$root.currentUser">
+        <input ng-model="newTask" type="text"
+               name="text" placeholder="Type to add new tasks"/>
+    </form>
+
     <div class="tasks">
-        <form class="new-task"
-              ng-submit="addTask(newTask); newTask='';"
-              ng-show="$root.currentUser">
-            <input ng-model="newTask" type="text"
-                   name="text" placeholder="Type to add new tasks"/>
-        </form>
         <ul ng-repeat="task in tasks">
             <li ng-class="{'checked': task.checked, 'private': task.private}">
                 <button class="delete" ng-click="deleteTask(task)">&times;</button>
