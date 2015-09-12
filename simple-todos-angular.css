@@ -17,12 +17,39 @@ body {
   font-size: 14px;
 }
 
+#username{
+ font-family: "Times New Roman", Times, serif;
+ font-size: 12px;
+ color: blue;
+
+
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
   min-height: 100%;
   background: white;
 }
+
+.chat-box {
+  width: 500px;
+  height: 300px;
+  overflow: scroll;
+  margin: 20px auto;
+  padding: 50px;
+  border-width: 10px;
+}
+
+.tasks {
+  width: 500px;
+  height: 300px;
+  overflow: scroll;
+  margin: 20px auto;
+  padding: 50px;
+  border-width: 10px;
+}
+
 
 header {
   background: #d2edf4;
@@ -42,6 +69,9 @@ h1 {
   display: inline-block;
   margin-right: 1em;
 }
+
+
+
 
 form {
   margin-top: 10px;
@@ -81,7 +111,7 @@ ul {
 li {
   position: relative;
   list-style: none;
-  padding: 15px;
+  padding: 10px;
   border-bottom: #eee solid 1px;
 }
 

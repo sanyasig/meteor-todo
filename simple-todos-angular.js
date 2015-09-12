@@ -1,4 +1,5 @@
 Tasks = new Mongo.Collection('tasks');
+Messages = new Mongo.Collection('messages');
 
 if (Meteor.isClient) {
 
@@ -22,13 +23,22 @@ if (Meteor.isClient) {
     function ($scope, $meteor) {
 
       $scope.$meteorSubscribe('tasks');
+      $scope.$meteorSubscribe('messages');
 
       $scope.tasks = $meteor.collection(function() {
         return Tasks.find($scope.getReactively('query'), {sort: {createdAt: -1}})
       });
 
+      $scope.messages = $meteor.collection(function(){
+        return Messages.find($scope.getReactively('query'), {sort: {createdAt: -1}})
+      });
+
       $scope.addTask = function (newTask) {
         $meteor.call('addTask', newTask);
+      };
+
+      $scope.addMessage = function (newMessage){
+        $meteor.call("newMessage", newMessage);
       };
 
       $scope.deleteTask = function (task) {
@@ -58,6 +68,15 @@ if (Meteor.isClient) {
 }
 
 Meteor.methods({
+  newMessage: function(message){
+  Messages.insert({
+        message: message,
+        createdAt: new Date(),
+        //owner: Meteor.userId(),
+        //username: Meteor.user().username
+      });
+    },
+
   addTask: function (text) {
     // Make sure the user is logged in before inserting a task
     if (! Meteor.userId()) {
@@ -109,5 +128,10 @@ if (Meteor.isServer) {
         { owner: this.userId }
       ]
     });
+  });
+
+  Meteor.publish('messages', function(){
+    return Messages.find();
+
   });
 }
