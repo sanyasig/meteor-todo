@@ -5,7 +5,7 @@ body {
   background-image: linear-gradient(to bottom, #315481, #918e82 100%);
   background-attachment: fixed;
 
-  position: absolute;
+ /*osition: absolute*/
   top: 0;
   bottom: 0;
   left: 0;
@@ -36,28 +36,32 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 100%;
   margin: 0 auto;
   min-height: 100%;
   background: white;
 }
 
 .chat-box {
-  width: 500px;
-  height: 300px;
+ width: 43%;
+  height: 700px;
   overflow: scroll;
   margin: 20px auto;
   padding: 50px;
   border-width: 10px;
+  float: right;
+  background: white;
 }
 
 .tasks {
-  width: 500px;
-  height: 300px;
+  width: 43%;
+  height: 700px;
   overflow: scroll;
   margin: 20px auto;
   padding: 50px;
   border-width: 10px;
+  float: left;
+  background: white;
 }
 
 
@@ -88,13 +92,14 @@ form {
 }
 
 .new-task input {
+  border: 15px red;
   box-sizing: border-box;
-  padding: 10px 0;
+  padding: 15px 0;
   background: #D9E5FF;
-  border: 6px;
   width: 100%;
   padding-right: 80px;
   font-size: 1em;
+
 }
 
 .new-task input:focus{
