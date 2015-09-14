@@ -12,7 +12,8 @@
             <input type="text" ng-model="newMessage" name="Text" placeholder="New Message"/>
         </form>
         <ul ng-repeat="eachMessage in messages">
-            <li><span id="username">{{eachMessage.username}}: </span>{{eachMessage.message}} <div id="messageTime">Time</div></li>
+
+            <li><span id="username">{{eachMessage.username}}: </span>{{eachMessage.message}} <div id="messageTime"> {{getTimeDiff(eachMessage.createdAt);}} ago</div></li>
         </ul>
     </div>
 

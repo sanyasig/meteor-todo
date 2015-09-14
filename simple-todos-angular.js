@@ -33,6 +33,23 @@ if (Meteor.isClient) {
         return Messages.find($scope.getReactively('query'), {sort: {createdAt: -1}})
       });
 
+      $scope.getTimeDiff = function(time){
+        var currentTime = new Date();
+        milisec_diff = currentTime - time;
+        var days = Math.floor(milisec_diff / 1000 / 60 / (60 * 24));
+        var date_diff = new Date( milisec_diff );
+        var returnTime;
+        if(days >= 1){
+         returnTime =  days + " Days "+ date_diff.getHours() + " Hours ";
+        }else{
+          returnTime =  date_diff.getMinutes() + " Hours " + date_diff.getMinutes() + " Minutes ";
+        }
+        return returnTime;
+      };
+
+      $scope.incompleteCount = function () {
+      }
+
       $scope.addTask = function (newTask) {
         $meteor.call('addTask', newTask);
       };

@@ -40,10 +40,11 @@ body {
   margin: 0 auto;
   min-height: 100%;
   background: white;
+  background-image: test.jpg;
 }
 
 .chat-box {
- width: 43%;
+ width: 42%;
   height: 700px;
   overflow: scroll;
   margin: 20px auto;
@@ -54,7 +55,7 @@ body {
 }
 
 .tasks {
-  width: 43%;
+  width: 42%;
   height: 700px;
   overflow: scroll;
   margin: 20px auto;
