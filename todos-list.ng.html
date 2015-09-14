@@ -3,18 +3,24 @@
         <meteor-include src="loginButtons"></meteor-include>
     </header>
 
+
     <div ng-if="$root.currentUser" class="chat-box">
         <p id="headerText">Chat Room</p>
+
         <div ng-if="!$root.currentUser">
             <h1>Please log in to use the chat room</h1>
         </div>
         <form class="new-task" ng-submit="addMessage(newMessage); newMessage='';">
             <input type="text" ng-model="newMessage" name="Text" placeholder="New Message"/>
         </form>
-        <ul ng-repeat="eachMessage in messages">
+        <div id="all-messages">
+            <ul ng-repeat="eachMessage in messages">
 
-            <li><span id="username">{{eachMessage.username}}: </span>{{eachMessage.message}} <div id="messageTime"> {{getTimeDiff(eachMessage.createdAt);}} ago</div></li>
-        </ul>
+                <li><span id="username">{{eachMessage.username}}: </span>{{eachMessage.message}}
+                    <div id="messageTime"> {{getTimeDiff(eachMessage.createdAt);}} ago</div>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <div class="tasks">
@@ -30,23 +36,25 @@
             <input ng-model="newTask" type="text"
                    name="text" placeholder="Type to add new tasks"/>
         </form>
-        <ul ng-repeat="task in tasks">
-            <li ng-class="{'checked': task.checked, 'private': task.private}">
-                <button class="delete" ng-click="deleteTask(task)">&times;</button>
+        <div id="all-tasks">
+            <ul ng-repeat="task in tasks">
+                <li ng-class="{'checked': task.checked, 'private': task.private}">
+                    <button class="delete" ng-click="deleteTask(task)">&times;</button>
 
-                <input type="checkbox" ng-checked="task.checked"
-                       ng-click="setChecked(task)" class="toggle-checked"/>
+                    <input type="checkbox" ng-checked="task.checked"
+                           ng-click="setChecked(task)" class="toggle-checked"/>
 
-                <button class="toggle-private"
-                        ng-if="task.owner === $root.currentUser._id"
-                        ng-click="setPrivate(task)">
-                    {{task.private == true ? "Private" : "Public"}}
-                </button>
+                    <button class="toggle-private"
+                            ng-if="task.owner === $root.currentUser._id"
+                            ng-click="setPrivate(task)">
+                        {{task.private == true ? "Private" : "Public"}}
+                    </button>
 
       <span class="text">
         <strong>{{task.username}}</strong> - {{task.text}}
       </span>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

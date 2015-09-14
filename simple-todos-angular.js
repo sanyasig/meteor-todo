@@ -42,7 +42,7 @@ if (Meteor.isClient) {
         if(days >= 1){
          returnTime =  days + " Days "+ date_diff.getHours() + " Hours ";
         }else{
-          returnTime =  date_diff.getMinutes() + " Hours " + date_diff.getMinutes() + " Minutes ";
+          returnTime =  date_diff.getHours() + " Hours " + date_diff.getMinutes() + " Minutes ";
         }
         return returnTime;
       };

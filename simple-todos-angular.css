@@ -44,27 +44,30 @@ body {
 }
 
 .chat-box {
- width: 42%;
-  height: 700px;
-  overflow: scroll;
-  margin: 20px auto;
-  padding: 50px;
-  border-width: 10px;
+  width: 49%;
   float: right;
   background: white;
 }
-
-.tasks {
-  width: 42%;
-  height: 700px;
+#all-messages{
+  height: 430px;
   overflow: scroll;
   margin: 20px auto;
   padding: 50px;
   border-width: 10px;
+}
+
+.tasks {
+  width: 49%;
   float: left;
   background: white;
 }
-
+#all-tasks{
+  height: 400px;
+  overflow: scroll;
+  margin: 20px auto;
+  padding: 50px;
+  border-width: 10px;
+}
 
 header {
   background: #d2edf4;
