@@ -1,30 +1,12 @@
-<div class="container">
-    <header>
-        <meteor-include src="loginButtons"></meteor-include>
-    </header>
 
+<div class="container-fluid">
+<div class="row">
+<meteor-include  type="button" class="btn-default btn-lg" src="loginButtons"></meteor-include>
+</div>
+<div class="row">
 
-    <div ng-if="$root.currentUser" class="chat-box">
-        <p id="headerText">Chat Room</p>
-
-        <div ng-if="!$root.currentUser">
-            <h1>Please log in to use the chat room</h1>
-        </div>
-        <form class="new-task" ng-submit="addMessage(newMessage); newMessage='';">
-            <input type="text" ng-model="newMessage" name="Text" placeholder="New Message"/>
-        </form>
-        <div id="all-messages">
-            <ul ng-repeat="eachMessage in messages">
-
-                <li><span id="username">{{eachMessage.username}}: </span>{{eachMessage.message}}
-                    <div id="messageTime"> {{getTimeDiff(eachMessage.createdAt);}} ago</div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="tasks">
-        <p id="headerText">Todo List ( {{ incompleteCount() }} )</p>
+<div class="col-xs-6">
+ <p id="headerText">Todo List ( {{ incompleteCount() }} )</p>
         <label class="hide-completed">
             <input type="checkbox" ng-model="$parent.hideCompleted"/>
             Hide Completed Tasks
@@ -56,5 +38,28 @@
                 </li>
             </ul>
         </div>
-    </div>
+</div>
+<div class="col-xs-6">
+ <p id="headerText">Chat Room</p>
+
+        <div ng-if="!$root.currentUser">
+            <h1>Please log in to use the chat room</h1>
+        </div>
+ <form class="new-task" ng-submit="addMessage(newMessage); newMessage='';">
+            <input type="text" ng-model="newMessage" name="Text" placeholder="New Message"/>
+        </form>
+        <div id="all-messages">
+            <ul ng-repeat="eachMessage in messages">
+
+                <li><span id="username">{{eachMessage.username}}: </span>{{eachMessage.message}}
+                    <div id="messageTime"> {{getTimeDiff(eachMessage.createdAt);}} ago</div>
+                </li>
+            </ul>
+        </div>
+</div>
+
+
+
+</div>
+  
 </div>
